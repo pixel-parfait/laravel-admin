@@ -1,0 +1,12 @@
+.search-filter {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+        margin-bottom: $block-spacing;
+    }
+
+    &-dropdown {
+        padding: 1rem;
+    }
+}

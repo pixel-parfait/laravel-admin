@@ -1,0 +1,38 @@
+.button {
+    &.is-xs {
+        font-size: $size-7;
+        line-height: 1.1;
+        height: auto;
+        border-radius: $radius-small;
+    }
+
+    &.is-transparent {
+        background-color: transparent;
+
+        @each $name, $pair in $button-colors {
+            $color: nth($pair, 1);
+
+            &.is-#{$name} {
+                color: $color;
+
+                @if length($pair) >= 3 {
+                    $color-light: nth($pair, 3);
+
+                    &:hover {
+                        background-color: bulmaDarken($color-light, 2.5%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.buttons {
+    .dropdown:not(:last-child) {
+        margin-bottom: 0.5rem;
+
+        &:not(.is-fullwidth) {
+            margin-right: 0.5rem;
+        }
+    }
+}

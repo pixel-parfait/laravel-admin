@@ -1,0 +1,38 @@
+.icon {
+    svg {
+        width: 80%;
+        height: 80%;
+
+        &.small {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+}
+
+.button-icon {
+    border-radius: 9999px;
+    cursor: pointer;
+
+    &.drag-handle {
+        cursor: grab;
+    }
+
+    &:hover {
+        background-color: $light;
+    }
+
+    @each $name, $pair in $colors {
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
+
+        &.is-#{$name} {
+            color: $color;
+
+            &:hover {
+                background-color: $color;
+                color: $color-invert;
+            }
+        }
+    }
+}

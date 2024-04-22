@@ -1,0 +1,18 @@
+.filepond {
+    &--wrapper {
+        &.has-library-button {
+            .filepond--root {
+                margin-bottom: 0;
+
+                & > .filepond--panel > .filepond--panel-bottom {
+                    border-radius: 0 !important;
+                }
+            }
+        }
+
+        & + .button {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+}

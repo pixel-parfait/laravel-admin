@@ -1,0 +1,143 @@
+.card:not(:last-child) {
+    margin-bottom: $default-padding;
+}
+
+.card {
+    border-radius: $radius-large;
+    border: $card-border;
+
+    &.has-table {
+        .card-content {
+            padding: 0;
+        }
+
+        .b-table {
+            border-radius: $radius-large;
+            // overflow: hidden;
+        }
+    }
+
+    &.is-card-widget {
+        .card-content {
+            padding: $default-padding * 0.5;
+        }
+    }
+
+    .card-header {
+        border-bottom: $light-border;
+        overflow: hidden;
+
+        &-title {
+            &-start,
+            &-end {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.75rem;
+                min-width: 3em;
+            }
+
+            &-start {
+                border-right: $light-border;
+            }
+
+            &-end {
+                border-left: $light-border;
+            }
+        }
+
+        &-index {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.625rem;
+            font-weight: $weight-bold;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: $primary;
+            color: $primary-invert;
+            border-radius: 9999px;
+            margin-right: 0.75rem;
+        }
+    }
+
+    &.is-collapsed {
+        .card-header {
+            border-bottom: 0;
+        }
+    }
+
+    &.is-draggable {
+        .card-header-index {
+            flex-shrink: 0;
+            cursor: grab;
+        }
+    }
+
+    .card-content {
+        padding-top: $card-content-padding-top;
+
+        hr {
+            margin-left: $card-content-padding * -1;
+            margin-right: $card-content-padding * -1;
+        }
+
+        &-tabs {
+            font-weight: $weight-medium;
+            margin-top: $card-content-padding-top * -1;
+            margin-left: $card-content-padding * -1;
+            margin-right: $card-content-padding * -1;
+        }
+
+        @include mobile {
+            padding: 1rem;
+
+            &-tabs {
+                margin-top: -1rem;
+                margin-left: -1rem;
+                margin-right: -1rem;
+            }
+        }
+    }
+
+    .is-widget-icon {
+        .icon {
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+
+    .is-widget-label {
+        .subtitle {
+            color: $grey;
+        }
+    }
+
+    &-file {
+        display: block;
+        overflow: hidden;
+        cursor: pointer;
+
+        &-name {
+            font-weight: $weight-bold;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &-checkbox {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        &:hover {
+            border-color: $link;
+        }
+
+        &.is-loading {
+            pointer-events: none;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.switch {
+    vertical-align: top;
+
+    &.is-disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+    }
+
+    input:focus + .check {
+        box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color;
+    }
+}

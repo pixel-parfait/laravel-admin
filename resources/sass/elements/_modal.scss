@@ -1,0 +1,27 @@
+.modal {
+    &-card {
+        min-width: $modal-card-width;
+        border-radius: $card-radius;
+
+        &-head {
+            font-weight: $weight-bold;
+        }
+
+        &-foot {
+            background-color: $modal-card-foot-background-color;
+        }
+    }
+
+    &.is-large {
+        .modal-card {
+            width: 80vw;
+        }
+    }
+
+    @include mobile {
+        .animation-content .modal-card {
+            width: $modal-card-width-mobile;
+            margin: 0 auto;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.image {
+    img {
+        object-fit: cover;
+    }
+
+    .loader {
+        position: absolute;
+        @include center(1em);
+    }
+}

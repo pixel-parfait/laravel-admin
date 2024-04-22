@@ -1,0 +1,100 @@
+.control.has-datalist {
+    position: relative;
+
+    .input {
+        padding-right: 2.25rem;
+        text-overflow: ellipsis;
+    }
+
+    .delete {
+        position: absolute;
+        top: 50%;
+        right: 0.5rem;
+        cursor: pointer;
+        transform: translateY(-50%);
+    }
+
+    &.is-multiple {
+        .input {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+}
+
+.datalist {
+    position: absolute;
+    top: 100%;
+    left: -0.5rem;
+    min-width: calc(100% + 1rem);
+    max-height: 20rem;
+    margin-top: 0.25rem;
+    background-color: $white;
+    border: 1px solid $input-border-color;
+    border-radius: $radius;
+    box-shadow: $card-shadow;
+    overflow: auto;
+    z-index: 10;
+
+    &.is-top {
+        top: auto;
+        bottom: 100%;
+        margin-bottom: 0.25rem;
+    }
+
+    &-item {
+        & > a,
+        & > span {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+        }
+
+        & > a {
+            color: $text;
+
+            &:hover,
+            &.is-active {
+                background-color: $light;
+            }
+        }
+
+        &-id {
+            flex-shrink: 0;
+            color: $grey-light;
+            width: 3.5rem;
+
+            @include mobile {
+                display: none;
+            }
+        }
+
+        &:not(:last-child) {
+            border-bottom: $light-border;
+        }
+
+        .tag {
+            margin-left: 0.5rem;
+        }
+    }
+
+    &-selection {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        min-height: $input-height;
+        border: $control-border-width solid $input-border-color;
+        padding: $control-padding-vertical $control-padding-horizontal;
+        border-bottom-left-radius: $input-radius;
+        border-bottom-right-radius: $input-radius;
+        border-top: 0;
+
+        .tags {
+            width: 100%;
+        }
+
+        .tag {
+            max-width: 100%;
+        }
+    }
+}

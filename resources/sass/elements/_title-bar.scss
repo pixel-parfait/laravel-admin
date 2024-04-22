@@ -1,0 +1,67 @@
+section.section.is-title-bar {
+    padding: $default-padding;
+    border-bottom: $light-border;
+
+    @include mobile {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .level {
+        min-height: $control-height;
+
+        &-left,
+        &-item {
+            flex-shrink: 1;
+            min-width: 0;
+        }
+
+        @include tablet {
+            &-left {
+                padding-right: $default-padding;
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+        min-width: 0;
+
+        li {
+            font-size: $default-padding;
+            font-weight: $weight-medium;
+            color: $title-bar-color;
+            padding: 0 $default-padding * 0.5 0 0;
+            flex-shrink: 0;
+
+            a {
+                display: inline-block;
+
+                &:not(:hover) {
+                    color: $grey;
+                }
+            }
+
+            &:after {
+                content: "/";
+                display: inline-block;
+                padding-left: $default-padding * 0.5;
+            }
+
+            &:last-child {
+                font-weight: 900;
+                color: $title-bar-active-color;
+                padding-right: 0;
+                white-space: nowrap;
+                flex-shrink: 1;
+                flex-grow: 0;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+}

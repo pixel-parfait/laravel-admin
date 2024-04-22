@@ -1,0 +1,5 @@
+.columns.is-fullhd {
+    @include until($fullhd) {
+        display: block;
+    }
+}

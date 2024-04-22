@@ -1,0 +1,19 @@
+.tags {
+    &.is-sortable {
+        .tag {
+            cursor: grab;
+        }
+    }
+}
+
+.tag {
+    &-value {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+
+    &.is-small {
+        font-size: 0.625rem;
+    }
+}

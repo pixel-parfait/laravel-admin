@@ -1,0 +1,19 @@
+.tooltip {
+    display: none;
+    position: absolute;
+    font-size: $size-7;
+    font-weight: $weight-bold;
+    background-color: $dark;
+    color: $white;
+    padding: 0.5em 0.75em;
+    border-radius: $control-radius;
+    z-index: 9999;
+
+    &-arrow {
+        position: absolute;
+        background: $dark;
+        width: 8px;
+        height: 8px;
+        transform: rotate(45deg);
+    }
+}

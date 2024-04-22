@@ -1,0 +1,11 @@
+.notification {
+    &.is-loading {
+        position: relative;
+
+        &:after {
+            content: "";
+            @include loader;
+            @include center(1em);
+        }
+    }
+}

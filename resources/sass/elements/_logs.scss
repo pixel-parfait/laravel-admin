@@ -1,0 +1,30 @@
+.logs {
+    max-height: 50vh;
+    overflow: auto;
+
+    .has-text-gray {
+        color: $grey-light;
+    }
+
+    .has-text-green {
+        color: $green;
+    }
+
+    .has-text-red {
+        color: $red;
+    }
+
+    .has-text-yellow {
+        color: $yellow;
+    }
+
+    &.is-loading {
+        position: relative;
+
+        &:after {
+            content: "";
+            @include loader;
+            @include center(1em);
+        }
+    }
+}

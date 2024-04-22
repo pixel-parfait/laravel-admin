@@ -1,0 +1,99 @@
+.library {
+    &-file {
+        position: relative;
+        display: block;
+        font-size: $size-7;
+        color: $text;
+
+        .image {
+            background-color: $light;
+            border-radius: $card-radius;
+            overflow: hidden;
+        }
+
+        &-selected {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: $success;
+            color: $white;
+            border: 2px solid $white;
+            border-radius: 9999px;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        &-name {
+            font-weight: $weight-bold;
+            margin-top: 0.5rem;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        &-edit {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        &:hover .library-file-edit {
+            opacity: 1;
+        }
+    }
+
+    .modal-card-body {
+        padding: 2rem;
+    }
+}
+
+label.library-file {
+    & > div {
+        opacity: 0.25;
+        cursor: not-allowed;
+    }
+
+    & > input {
+        display: none;
+
+        &:not(:disabled) + div {
+            opacity: 1;
+            cursor: pointer;
+            transition: opacity 150ms;
+
+            &:hover {
+                opacity: 0.65;
+            }
+        }
+
+        &:checked + div {
+            .image {
+                outline: 5px solid $success;
+            }
+
+            .icon {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+a.library-file {
+    transition: opacity 150ms;
+
+    &:hover > div {
+        opacity: 0.65;
+    }
+}
+
+.media-modal {
+    .image {
+        img {
+            max-height: 60vh;
+            object-fit: contain;
+        }
+    }
+}

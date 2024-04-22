@@ -1,0 +1,327 @@
+.field {
+    &:not(:last-child) {
+        margin-bottom: $block-spacing;
+    }
+
+    &.has-check {
+        .field-body {
+            margin-top: $default-padding * 0.125;
+        }
+    }
+
+    &.is-horizontal {
+        align-items: center;
+    }
+
+    .control {
+        &.is-grouped {
+            display: flex;
+
+            .input {
+                border-radius: 0;
+                margin-left: -1px;
+
+                &:first-child {
+                    border-top-left-radius: $input-radius;
+                    border-bottom-left-radius: $input-radius;
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    border-top-right-radius: $input-radius;
+                    border-bottom-right-radius: $input-radius;
+                }
+
+                &:hover {
+                    z-index: 1;
+                }
+
+                &:focus {
+                    z-index: 2;
+                }
+            }
+        }
+    }
+}
+
+input[type="date"],
+input[type="datetime-local"] {
+    display: block;
+}
+
+.upload {
+    .upload-draggable {
+        display: block;
+    }
+}
+
+.b-checkbox.checkbox input[type="checkbox"],
+.b-radio.radio input[type="radio"] {
+    & + .check {
+        border: $checkbox-border;
+    }
+}
+
+.label {
+    display: flex;
+    align-items: center;
+
+    &-translatable {
+        display: flex;
+        margin-left: 0.35em;
+        cursor: pointer;
+
+        .icon {
+            opacity: 0.25;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.is-required:after {
+        content: "*";
+        color: $danger;
+        margin-left: 0.25em;
+    }
+
+    & + .help {
+        margin-bottom: 0.75em;
+        margin-top: -0.75em;
+    }
+}
+
+.textarea {
+    padding: $control-padding-vertical $control-padding-horizontal;
+    min-height: $control-height;
+    max-width: 100%;
+    resize: vertical;
+}
+
+.subfields {
+    border: 1px solid $input-border-color;
+    border-radius: $control-radius;
+
+    &:not(:last-child) {
+        margin-bottom: $block-spacing;
+    }
+}
+
+.subfield {
+    display: flex;
+    border-radius: $control-radius;
+    padding: 0.75rem;
+
+    &:nth-of-type(even) {
+        background-color: $white-bis;
+    }
+
+    &:nth-of-type(odd) {
+        background-color: $white;
+    }
+
+    &:not(:first-child) {
+        border-top: 1px solid $input-border-color;
+        border-radius: 0;
+    }
+
+    &:first-child {
+        border-top-left-radius: $control-radius;
+        border-top-right-radius: $control-radius;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+        border-bottom-left-radius: $control-radius;
+        border-bottom-right-radius: $control-radius;
+    }
+
+    &-handle {
+        color: $grey;
+        padding-right: 1rem;
+        cursor: move;
+    }
+
+    &-actions {
+        padding-left: 1rem;
+    }
+
+    &-content {
+        flex: 1;
+    }
+}
+
+.file {
+    &.is-loading {
+        pointer-events: none;
+
+        .file-cta {
+            color: transparent !important;
+
+            &:after {
+                content: "";
+                @include loader;
+                @include center(1em);
+            }
+        }
+    }
+
+    &-input:disabled + .file-cta {
+        opacity: $button-disabled-opacity;
+        cursor: not-allowed;
+
+        .file-label {
+            cursor: not-allowed;
+        }
+    }
+}
+
+.select {
+    border-color: $input-border-color;
+
+    &:active,
+    &:focus {
+        border-color: $input-focus-border-color;
+    }
+
+    &:hover {
+        border-color: $input-hover-border-color;
+    }
+}
+
+.select:not(.is-multiple):not(.is-loading) {
+    &:after {
+        border-width: 2px;
+        border-color: inherit;
+    }
+}
+
+.color-picker {
+    cursor: pointer;
+
+    .input {
+        display: flex;
+        align-items: center;
+    }
+
+    &-color {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-right: 0.75em;
+        border-radius: 9999px;
+    }
+
+    &-none {
+        border: 1px solid $light;
+    }
+}
+
+.layout-selection {
+    position: relative;
+
+    &-options {
+        width: 100%;
+        background-color: $white;
+        border-radius: $card-radius;
+        overflow: hidden;
+
+        li {
+            text-align: center;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $light;
+            }
+
+            &:not(:last-child) {
+                border-bottom: $light-border;
+            }
+        }
+    }
+}
+
+.video-thumbnail {
+    position: relative;
+
+    .button {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+.tiptap {
+    & > div {
+        @extend .textarea;
+        overflow: auto;
+    }
+
+    &.is-single-line {
+        & > div {
+            height: $control-height;
+            min-height: $control-height;
+            max-height: $control-height;
+            resize: none;
+        }
+    }
+
+    &.is-danger > div {
+        border-color: $danger;
+    }
+}
+
+.tox-tinymce {
+    border: $control-border-width solid $input-border-color !important;
+    border-radius: $input-radius !important;
+
+    &:not(.tox-tinymce-inline) .tox-editor-header {
+        border-bottom: $control-border-width solid $input-border-color !important;
+        box-shadow: none !important;
+    }
+
+    &.is-focused {
+        border-color: $input-focus-border-color !important;
+        box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color !important;
+    }
+
+    &:hover:not(.is-focused) {
+        border-color: $input-hover-border-color !important;
+    }
+}
+
+.embed-preview {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: $light;
+    border-radius: $radius;
+    border: 1px solid $light;
+    overflow: hidden;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    &-placeholder {
+        aspect-ratio: unset;
+        color: $grey-dark;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    &-error {
+        border-color: $danger;
+    }
+}
+
+input::-webkit-calendar-picker-indicator {
+    line-height: initial;
+}
+
+input::placeholder {
+    opacity: 0.3;
+}

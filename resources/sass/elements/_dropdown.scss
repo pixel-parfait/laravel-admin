@@ -1,0 +1,49 @@
+.dropdown {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    border-radius: $card-radius;
+
+    .button {
+        margin-bottom: 0;
+    }
+
+    &-inner {
+        background-color: $white;
+        border-radius: $card-radius;
+        width: 100%;
+    }
+
+    &-arrow,
+    &-arrow:before {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        z-index: -1;
+    }
+
+    &-arrow:before {
+        content: "";
+        background-color: $white;
+        box-shadow: $card-shadow;
+        transform: rotate(45deg);
+    }
+
+    &[data-popper-placement^="top"] > .dropdown-arrow {
+        bottom: -5px;
+    }
+
+    &[data-popper-placement^="bottom"] > .dropdown-arrow {
+        top: -5px;
+    }
+
+    &[data-popper-placement^="left"] > .dropdown-arrow {
+        right: -5px;
+    }
+
+    &[data-popper-placement^="right"] > .dropdown-arrow {
+        left: -5px;
+    }
+}
+
+a.dropdown-item {
+    padding-right: 1rem;
+}

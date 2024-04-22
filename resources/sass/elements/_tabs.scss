@@ -1,0 +1,11 @@
+.tabs {
+    a {
+        color: $grey;
+        border-bottom-color: transparent;
+        border-bottom-width: 2px;
+    }
+
+    &.is-small a {
+        padding: 0.5em;
+    }
+}

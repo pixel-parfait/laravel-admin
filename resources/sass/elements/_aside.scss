@@ -1,0 +1,233 @@
+@include desktop {
+    #main {
+        &.has-aside-left {
+            &.has-aside-expanded {
+                &,
+                nav.navbar {
+                    padding-left: $aside-width;
+                }
+            }
+
+            &,
+            nav.navbar {
+                @include transition(padding-left);
+            }
+
+            aside.is-placed-left {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+    aside.aside.is-expanded {
+        width: $aside-width;
+
+        .menu-list {
+            @include icon-with-update-mark($aside-icon-width);
+
+            span.menu-item-label {
+                display: inline-block;
+            }
+
+            li.is-active {
+                ul {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.aside {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    height: 100vh;
+    padding-top: $aside-padding;
+    box-shadow: $aside-box-shadow;
+    background: $aside-background-color;
+
+    &-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .aside-tools {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        background-color: $aside-tools-background-color;
+        color: $aside-tools-color;
+        line-height: $navbar-height;
+        height: $navbar-height;
+        padding-left: $default-padding * 0.5;
+        flex: 1;
+
+        .icon {
+            margin-right: $default-padding * 0.5;
+        }
+    }
+
+    .menu {
+        font-size: $size-7;
+        font-weight: $weight-medium;
+        border-top: $light-border;
+        margin-top: $default-padding * 0.5;
+        padding-bottom: $aside-padding;
+        overflow: auto;
+
+        &-list {
+            padding: 0 $aside-padding;
+
+            li {
+                a {
+                    padding: 0.25rem 0;
+                    border-radius: 0.5rem;
+
+                    &.has-icon {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    &.has-dropdown-icon {
+                        position: relative;
+                        padding-right: $aside-icon-width;
+
+                        .dropdown-icon {
+                            position: absolute;
+                            top: $size-base * 0.5;
+                            right: 0;
+                        }
+                    }
+                }
+
+                ul {
+                    display: none;
+                    font-size: $aside-submenu-font-size;
+                    border-left: 0;
+                    margin-left: $default-padding;
+                    padding-left: 0.75rem;
+                    margin-right: 0;
+                    margin-top: 2px;
+
+                    li {
+                        position: relative;
+                        padding: 2px 0;
+
+                        a {
+                            padding: $default-padding * 0.25 $default-padding * 0.5;
+                        }
+
+                        &:first-child:before {
+                            top: 0;
+                        }
+
+                        &:not(:last-child) {
+                            margin-bottom: 0;
+                        }
+
+                        &:not(:first-child):before {
+                            top: -50%;
+                        }
+
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: -1rem;
+                            bottom: 50%;
+                            width: 0.5rem;
+                            border-style: solid;
+                            border-color: $grey-lighter;
+                            border-width: 0 0 1px 1px;
+                        }
+                    }
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: $default-padding * 0.25;
+                }
+
+                &.is-active > ul {
+                    display: block;
+                }
+            }
+        }
+
+        &-label {
+            padding: $default-padding * 0.5 $aside-padding * 1.5;
+            margin-bottom: 0;
+
+            &:not(:first-child) {
+                border-top: $light-border;
+                margin-top: $default-padding * 0.5;
+            }
+        }
+
+        &-list + .menu-list {
+            border-top: $light-border;
+            padding-top: $default-padding * 0.5;
+            margin-top: $default-padding * 0.5;
+        }
+    }
+}
+
+@include touch {
+    #main {
+        @include transition(margin-left);
+    }
+
+    aside.aside {
+        @include transition(left);
+    }
+
+    body,
+    #main,
+    nav.navbar {
+        width: 100vw;
+    }
+
+    aside.aside {
+        width: $aside-mobile-width;
+        display: block;
+        left: $aside-mobile-width * -1;
+
+        .image {
+            img {
+                max-width: $aside-mobile-width * 0.33;
+            }
+        }
+
+        .menu-list {
+            li.is-active {
+                ul {
+                    display: block;
+                }
+            }
+
+            a {
+                @include icon-with-update-mark($aside-icon-width);
+
+                span.menu-item-label {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    html.has-aside-mobile-expanded {
+        overflow-x: hidden;
+
+        #main {
+            margin-left: $aside-mobile-width;
+        }
+
+        aside.aside {
+            left: 0;
+        }
+    }
+}
